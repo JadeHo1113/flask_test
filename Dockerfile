@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-COPY . 
+COPY . /
 
 RUN yum -y install net-tools wget
 
