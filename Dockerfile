@@ -1,14 +1,7 @@
-FROM centos:centos7
-
-COPY . /
-
-RUN yum -y install net-tools wget
-
-RUN wget https://bootstrap.pypa.io/get-pip.py
-
-RUN python get-pip.py
-
-RUN pip install --no-cache-dir -r requirements.txt
-
+FROM python:2.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
 cmd python flask_test.py
 
