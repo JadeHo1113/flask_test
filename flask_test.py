@@ -19,10 +19,14 @@ app.logger.addHandler(handler)
 
 @app.route('/get_test' , methods=['GET'])
 def get_test():
-    app.logger.info('訪問')
+    app.logger.info('訪問GRT')
     return jsonify('TEST SUESS')
 
+@app.route('/')
+def hello_world():
+    app.logger.info('訪問hello_world')
+    return 'Flask Dockerized'
 
 if __name__ == '__main__':
     # MAIN
-    app.run(port=5000)#debug=True
+    app.run(host='0.0.0.0',port=5000)#debug=True
