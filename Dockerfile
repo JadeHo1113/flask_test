@@ -8,6 +8,7 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
+EXPOSE 8888
 ENTRYPOINT ["python"]
 
 #CMD ["flask_test.py"]
