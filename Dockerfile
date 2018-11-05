@@ -1,14 +1,8 @@
-FROM centos:centos7
-
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
 COPY . /app
 WORKDIR /app
-
-RUN yum -y install net-tools wget
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python get-pip.py
-RUN pip install --no-cache-dir -r requirements.txt
-
-
-
-cmd python flask_test.py
-
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["flask_test.py"]
